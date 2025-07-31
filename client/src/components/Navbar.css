@@ -1,0 +1,168 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--bg);
+  color: var(--text);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  z-index: 100;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  align-items: center;
+}
+
+.logo a,
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 35px;
+  background-color: var(--dropdown-bg-light);
+  color: var(--dropdown-text-light);
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 10px;
+  z-index: 1000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.profile-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ccc;
+}
+
+.dropdown-content li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Theme Variables */
+:root {
+  --dropdown-bg-light: #fff;
+  --dropdown-text-light: #000;
+
+  --dropdown-bg-dark: #333;
+  --dropdown-text-dark: #f1c40f; 
+}
+
+/* Light Theme Dropdown */
+body.light .dropdown-content {
+  background-color: var(--dropdown-bg-light);
+  color: var(--dropdown-text-light);
+}
+
+body.light .dropdown-content li:hover {
+  background-color: #eee;
+  color: #000;
+}
+
+/* Dropdown for dark mode */
+body.dark .dropdown-content {
+  background-color: var(--dropdown-bg-dark);
+  color: #f1c40f !important; 
+}
+
+body.dark .dropdown-content li,
+body.dark .dropdown-content li a {
+  color: #f1c40f !important; 
+}
+
+body.dark .dropdown-content li:hover,
+body.dark .dropdown-content li a:hover {
+  background-color: #555 !important;
+  color: #fff200 !important;
+}
+.navbar .dropdown-content li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body.dark .navbar .dropdown-content li a {
+  color: #f1c40f !important;
+}
+
+body.dark .navbar .dropdown-content li a:hover {
+  color: #fff200 !important;
+  background-color: #555 !important;
+}

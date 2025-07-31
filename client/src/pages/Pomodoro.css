@@ -1,0 +1,122 @@
+.pomodoro-wrapper {
+  max-width: 500px;      
+  width: 90%;            
+  padding: 20px;        
+  margin: 0 auto;      
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+   min-height: 90vh;
+  text-align: center;
+  animation: pinkPulse 10s ease infinite;
+  background: linear-gradient(-45deg, #ffafbd, #ffc3a0, #ffb6c1, #ffe1e1);
+  background-size: 400% 400%;
+  color: #333;
+}
+
+.pomodoro-wrapper.dark {
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+}
+
+.pomodoro-wrapper.dark .title,
+.pomodoro-wrapper.dark .time-display,
+.pomodoro-wrapper.dark label,
+.pomodoro-wrapper.dark input,
+.pomodoro-wrapper.dark .session-title,
+.pomodoro-wrapper.dark .session-history,
+.pomodoro-wrapper.dark .custom-input,
+.pomodoro-wrapper.dark .dropdown-select,
+.pomodoro-wrapper.dark .btn-group button {
+  color: white;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #ff6347;
+}
+
+/* Timer circle stays centered */
+.timer-circle {
+  position: relative;     
+  width: 180px;
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+.time-display {
+  position: absolute;     
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.session-title {
+  margin-top: 40px;
+  font-size: 1.3rem;
+  color: #444;
+}
+
+.session-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto 0;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 90%;
+  max-width: 400px;
+  text-align: left;
+}
+
+/* Responsive dropdowns and input */
+.dropdown-select,
+.custom-input input {
+  display: block;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 300px;
+   font-size: 0.9rem;
+  padding: 8px 12px;
+}
+
+@media (max-width: 480px) {
+  .pomodoro-wrapper {
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .time-display {
+    font-size: 2.2rem;
+  }
+
+  .btn-group button {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .session-title {
+    font-size: 1.1rem;
+  }
+
+  .custom-input input {
+    font-size: 0.95rem;
+  }
+}

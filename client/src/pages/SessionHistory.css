@@ -1,0 +1,64 @@
+.history-container {
+  padding: 100px 30px 30px;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.history-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff6347;
+}
+
+.history-card {
+  background: #fff3ee;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.history-card:hover {
+  transform: scale(1.01);
+}
+
+.history-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.duration {
+  font-weight: bold;
+  color: #222;
+}
+
+.task {
+  font-style: italic;
+  color: #555;
+}
+
+.time {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.history-actions button {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.task-input {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
