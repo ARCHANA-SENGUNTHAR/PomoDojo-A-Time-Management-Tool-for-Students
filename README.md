@@ -11,7 +11,7 @@ With a clean interface, personalized session tracking, and interactive UI, PomoD
 
 # [Live Website](https://pomodojo-fawn.vercel.app/)
 
-# [Website Demo](https://youtu.be/fMlRTETv6YQ)
+# [Project Explanation](https://youtu.be/fMlRTETv6YQ)
 
 ---
 ## 🚀 Features
