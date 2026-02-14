@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './Pomodoro.css';
+import axios from "axios";
 import API from '../api/axios';
 
 const Pomodoro = () => {
