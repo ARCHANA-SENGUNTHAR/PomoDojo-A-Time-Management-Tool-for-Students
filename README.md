@@ -9,6 +9,11 @@ With a clean interface, personalized session tracking, and interactive UI, PomoD
 
 ---
 
+# [Live Website](https://pomodojo-fawn.vercel.app/)
+
+# [Website Demo](https://youtu.be/fMlRTETv6YQ)
+
+---
 ## 🚀 Features
 
 - ⏲️ **Pomodoro Timer** – Start, pause, reset your 25-minute focus sessions
