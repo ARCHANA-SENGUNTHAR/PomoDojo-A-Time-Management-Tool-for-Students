@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './Pomodoro.css';
 import API from '../api/axios';
 
@@ -17,22 +17,25 @@ const Pomodoro = () => {
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
 
-  const fetchSessions = async () => {
-    try {
-      const res = await API.get(`${process.env.REACT_APP_API_URL}/api/sessions/user/${userId}`, {
+const fetchSessions = useCallback(async () => {
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/api/sessions/user/${userId}`,
+      {
         headers: { Authorization: `Bearer ${token}` },
-      });
-      setSessions(res.data);
-    } catch (err) {
-      console.error("Couldn't fetch sessions", err);
-    }
-  };
+      }
+    );
+    setSessions(res.data);
+  } catch (err) {
+    console.error("Couldn't fetch sessions", err);
+  }
+}, [userId, token]);
 
   useEffect(() => {
     fetchSessions();
     const mode = localStorage.getItem("darkMode") === "true";
     setDarkMode(mode);
-  }, []);
+  }, [fetchSessions]);
 
   useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
@@ -113,7 +116,7 @@ const Pomodoro = () => {
       }
     };
     if (task !== '') updateTask();
-  }, [task]);
+  }, [task, activeSessionId, token, fetchSessions]);
 
   const deleteSession = async (id) => {
     try {
