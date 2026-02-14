@@ -10,7 +10,7 @@ const app = express();
 
 // ✅ CORS (we will update this again after frontend deploy)
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: "https://pomodojo-fawn.vercel.app",
   credentials: true
 }));
 
