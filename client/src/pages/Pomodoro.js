@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Pomodoro.css';
-import axios from 'axios';
+import API from '../api/axios';
 
 const Pomodoro = () => {
   const [secondsLeft, setSecondsLeft] = useState(25 * 60);
@@ -19,7 +19,7 @@ const Pomodoro = () => {
 
   const fetchSessions = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/sessions/user/${userId}`, {
+      const res = await API.get(`${process.env.REACT_APP_API_URL}/api/sessions/user/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSessions(res.data);
@@ -56,8 +56,8 @@ const Pomodoro = () => {
   // 👉 Save a new session on timer start
   const createNewSession = async () => {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/sessions",
+      const res = await API.post(
+        `${process.env.REACT_APP_API_URL}/api/sessions`,
         {
           duration: selectedMinutes,
           task: task || "Unnamed Session",
@@ -78,8 +78,8 @@ const Pomodoro = () => {
   const completeSession = async () => {
     try {
       if (activeSessionId) {
-        await axios.put(
-          `http://localhost:5000/api/sessions/${activeSessionId}`,
+        await API.put(
+          `${process.env.REACT_APP_API_URL}/api/sessions/${activeSessionId}`,
           {
             task: task || "Unnamed Session",
             completedAt: new Date(),
@@ -101,8 +101,8 @@ const Pomodoro = () => {
     const updateTask = async () => {
       if (activeSessionId) {
         try {
-          await axios.put(
-            `http://localhost:5000/api/sessions/${activeSessionId}`,
+          await API.put(
+            `${process.env.REACT_APP_API_URL}/api/sessions/${activeSessionId}`,
             { task: task || "Unnamed Session" },
             { headers: { Authorization: `Bearer ${token}` } }
           );
@@ -117,7 +117,7 @@ const Pomodoro = () => {
 
   const deleteSession = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/sessions/${id}`, {
+      await API.delete(`${process.env.REACT_APP_API_URL}/api/sessions/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchSessions();

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import API from '../api/axios';
 import './SessionHistory.css';
 
 function SessionHistory() {
@@ -13,7 +13,7 @@ function SessionHistory() {
     const userId = localStorage.getItem('userId');
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/sessions/user/${userId}`, {
+      const res = await API.get(`${process.env.REACT_APP_API_URL}/api/sessions/user/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -34,8 +34,8 @@ function SessionHistory() {
   const handleRenameSubmit = async (sessionId) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await axios.put(
-        `http://localhost:5000/api/sessions/${sessionId}`,
+      const res = await API.put(
+        `${process.env.REACT_APP_API_URL}/api/sessions/${sessionId}`,
         { task: editedTask },
         {
           headers: {
